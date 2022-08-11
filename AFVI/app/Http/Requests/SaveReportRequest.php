@@ -24,8 +24,8 @@ class SaveReportRequest extends FormRequest
     public function rules()
     {
         return [
-            'company_name_first_call_report' => 'min:0',
-            'product_first_call_report' => 'min:0',
+            'company_name_first_call_report' => 'required',
+            'product_first_call_report' => 'required',
             'name_customer_first_call_report' => 'required',
             'lastname_customer_first_call_report' => 'required',
             'mail_adress_first_call_report' => 'required|email',

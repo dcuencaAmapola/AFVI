@@ -16,13 +16,13 @@ class CreateFirstCallReportsTable extends Migration
         Schema::create('first_call_reports', function (Blueprint $table) {
             $table->increments('id_first_call_report');
             $table->datetime('date_first_call_report')->useCurrent();
-            $table->string('company_name_first_call_report')->nullable();
-            $table->string('product_first_call_report')->nullable();
+            $table->string('company_name_first_call_report')->default('Not Apply');
+            $table->string('product_first_call_report')->default('Not Apply');
             $table->string('name_customer_first_call_report');
             $table->string('lastname_customer_first_call_report');
             $table->string('mail_adress_first_call_report');
-            $table->string('phone_numbrer_first_call_report');
-            $table->string('policy_holder_first_call_report');
+            $table->char('phone_numbrer_first_call_report', 15);
+            $table->string('policy_holder_first_call_report',40);
             $table->string('dni_customer_first_call_report');
             $table->string('name_deceased_first_call_report');
             $table->string('lastname_deceased_first_call_report');

@@ -13,10 +13,20 @@
             @csrf
             <h1>New Report</h1>
             <hr>
-            <label>Company</label>
-            <input type="text" id="company_name_first_call_report" name="company_name_first_call_report"><br>
+            <label for="company_name_first_call_report">Company</label>
+            <div class="dropdown">
+                <input type="text" id="company_name_first_call_report" name="company_name_first_call_report"/>
+                <select onchange="this.previousElementSibling.value=this.value; this.previousElementSibling.focus()">
+                    <option>Not Apply</option>
+                </select>
+            </div><br>
             <label>Product</label>
-            <input type="text" id="product_first_call_report" name="product_first_call_report"><br>
+            <div class="dropdown">
+                <input type="text" id="product_first_call_report" name="product_first_call_report"/>
+                <select onchange="this.previousElementSibling.value=this.value; this.previousElementSibling.focus()">
+                    <option>Not Apply</option>
+                </select>
+            </div><br>
             <label>Customer Name</label>
             <input type="text" id="name_customer_first_call_report" name="name_customer_first_call_report"><br>
             <label>Customer Last Name</label>
@@ -48,6 +58,29 @@
 
             <button type="submit">Send</button>
         </form>
-        <a href="{{ route('firstCallReport.index')}}">Regresar</a>
+        <a href="{{ route('firstCallReport.index') }}">Regresar</a>
     </div>
 </body>
+
+<style>
+    .dropdown {
+        position: relative;
+        width: 200px;
+    }
+
+    .dropdown select {
+        width: 100%;
+    }
+
+    .dropdown>* {
+        box-sizing: border-box;
+        height: 1.5em;
+    }
+
+    .dropdown select {}
+
+    .dropdown input {
+        position: absolute;
+        width: calc(100% - 20px);
+    }
+</style>
